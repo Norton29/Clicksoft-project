@@ -1,21 +1,21 @@
 
 import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
 
-export default class Aluno extends BaseModel {
+export default class Students extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
   @column ()
-  public Nome: String
+  public name: String
 
   @column()
-    public email:String
+  public email:String
 
   @column()
-  public Matrícula: BigInt
+  public registration: BigInt
 
   @column()
-  public dataDeNascimento: Date
+  public birth_date: Date
 
   
 
