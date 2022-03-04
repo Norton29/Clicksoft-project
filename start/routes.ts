@@ -24,8 +24,7 @@ Route.get('/', async ({ view }) => {
   return view.render('welcome')
 })
 
-Route.get('/student',  'StudentsController.index')
-Route.post('/student',  'StudentsController.store')
-Route.get('/student/:id',  'StudentsController.show')
-Route.put('/student/:id',  'StudentsController.update')
-Route.delete('/student/:id',  'StudentsController.destroy')
+
+Route.resource('/student', 'StudentsController').apiOnly
+
+Route.resource('/teacher', 'TeachersController').apiOnly
