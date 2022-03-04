@@ -3,34 +3,34 @@ import Teacher from 'App/Models/Teacher'
 
 export default class TeachersController {
   public async index({}: HttpContextContract) {
-    const listStundent = await Teacher.all()
+    const listTeachers = await Teacher.all()
 
-    return listStundent
+    return listTeachers
   }
 
   public async store({ request}: HttpContextContract) {
     const data = request.only(['name', 'email', 'registration', 'birth_date'])
-    const insert = await Teacher.create(data)
-    return insert
+    const teacher = await Teacher.create(data)
+    return teacher
   }
 
   public async show({params}: HttpContextContract) {
-    const user = await Teacher.findOrFail(params.id)
-    return user
+    const teacher = await Teacher.findOrFail(params.id)
+    return teacher
   }
 
   public async update({request, params}: HttpContextContract) {
-    const user = await Teacher.findOrFail(params.id)
+    const teacher = await Teacher.findOrFail(params.id)
     const data = request.only(['name', 'email', 'registration', 'birth_date'])
 
-    user?.merge(data)
-    await user?.save()
-    return user
+    teacher?.merge(data)
+    await teacher?.save()
+    return teacher
   }
 
   public async destroy({params}: HttpContextContract) {
-    const user = await Teacher.findOrFail(params.id)
+    const teacher = await Teacher.findOrFail(params.id)
 
-    await user?.delete()
+    await teacher?.delete()
   }
 }
