@@ -25,6 +25,8 @@ Route.get('/', async ({ view }) => {
 })
 
 
+
 Route.resource('/students', 'StudentsController').apiOnly
 Route.resource('/teachers', 'TeachersController').apiOnly
-Route.resource('/rooms','RoomsController').apiOnly
+Route.resource('/rooms', 'RoomsController').apiOnly
+
